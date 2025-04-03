@@ -8,13 +8,9 @@ type CustomButtonProps = {
 };
 
 const CustomButton: React.FC<CustomButtonProps> = ({title, navigateTo}) => {
-  const navigation = useNavigation();
-  const handlePress = () => {
-      navigation.navigate(navigateTo);
-  };
 
   return (
-    <TouchableOpacity style={styles.button} onPress={handlePress}>
+    <TouchableOpacity style={styles.button} >
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
@@ -22,15 +18,15 @@ const CustomButton: React.FC<CustomButtonProps> = ({title, navigateTo}) => {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: 'lightblue',
-    padding: 15,
-    borderRadius: 5,
-    margin: 10,
+    backgroundColor: 'darkblue',
+    padding: 18,
+    borderRadius: 12,
     alignItems: 'center',
   },
   buttonText: {
     fontSize: 16,
-    color: 'black',
+    color: 'white',
+    fontWeight: 'bold',
   },
 });
 
