@@ -11,6 +11,12 @@ export default function App() {
           <Text style={styles.text}>
             10 Functions of the Android Mobile App
           </Text>
+          <View>
+            <Button
+              title="Function 1"
+              navigateTo="Function1"
+            />
+          </View>
         </ScrollView>
       </View>
     </View>

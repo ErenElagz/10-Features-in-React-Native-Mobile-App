@@ -1,31 +1,37 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import {TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-Button.defaultProps = {
-  title: String,
-  onPress: () => {},
+type CustomButtonProps = {
+  title: string;
+  navigateTo: string;
 };
 
-export default function Button() {
+const CustomButton: React.FC<CustomButtonProps> = ({title, navigateTo}) => {
+  const navigation = useNavigation();
+  const handlePress = () => {
+      navigation.navigate(navigateTo);
+  };
+
   return (
-    <TouchableOpacity style={styles.container} onPress={() => {}}>
-      <Text style={styles.text}>Button</Text>
+    <TouchableOpacity style={styles.button} onPress={handlePress}>
+      <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#323232',
-    padding: 16,
+  button: {
+    backgroundColor: 'lightblue',
+    padding: 15,
     borderRadius: 5,
-    marginTop: 20,
-    width: '100%',
+    margin: 10,
+    alignItems: 'center',
   },
-  text: {
+  buttonText: {
     fontSize: 16,
-    color: '#fff',
+    color: 'black',
   },
 });
+
+export default CustomButton;
