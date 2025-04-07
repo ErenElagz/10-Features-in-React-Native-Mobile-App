@@ -1,6 +1,6 @@
 import {SafeAreaView, StatusBar, View} from 'react-native';
 import React from 'react';
-import RootNavigator from './src/Navigators/RootNavigator';
+import RootNavigator from './src/navigators/RootNavigator';
 import {NavigationContainer} from '@react-navigation/native';
 
 export default function App() {

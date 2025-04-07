@@ -1,12 +1,14 @@
-import {StyleSheet, Text, View, StatusBar, ScrollView} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import Pages from '../../data/Pages';
 
 export default function ChatBotScreen() {
   return (
     <View style={{flex: 1}}>
       <View style={styles.container}>
-        <Text style={styles.author}>Function 4</Text>
-        <Text style={styles.text}>Gemini ChatBot</Text>
+        <Text style={styles.function}>Function {Pages[3].index}</Text>
+        <Text style={styles.title}>{Pages[3].title}</Text>
+        <Text style={styles.description}>{Pages[3].description}</Text>
       </View>
     </View>
   );
@@ -18,12 +20,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 16,
   },
-  text: {
+  title: {
     fontSize: 28,
+    marginTop: 8,
     color: '#000',
     letterSpacing: -0.75,
   },
-  author: {
+  description: {
+    fontSize: 16,
+    color: '#aaa',
+  },
+  function: {
     fontSize: 24,
     color: '#234897',
     letterSpacing: -0.5,
