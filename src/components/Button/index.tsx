@@ -4,13 +4,12 @@ import {useNavigation} from '@react-navigation/native';
 
 type CustomButtonProps = {
   title: string;
-  navigateTo: string;
+  onPress: () => void;
 };
 
-const CustomButton: React.FC<CustomButtonProps> = ({title, navigateTo}) => {
-
+const CustomButton: React.FC<CustomButtonProps> = ({title, onPress}) => {
   return (
-    <TouchableOpacity style={styles.button} >
+    <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
