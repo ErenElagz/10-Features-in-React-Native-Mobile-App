@@ -10,15 +10,14 @@ export default function HomeScreen() {
     <View style={{flex: 1}}>
       <View style={styles.container}>
         <ScrollView>
-          <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-          <Text style={styles.author}>ErenElagz</Text>
+            <Text style={styles.author}>ErenElagz</Text>
           <Text style={styles.text}>
             10 Functions of the Android Mobile App
           </Text>
           <View style={{marginTop: 20, gap: 8}}>
             <Button
               title="QR Scanner"
-              onPress={() => nav.navigate('Camera' as never)}
+              onPress={() => nav.navigate('QR' as never)}
             />
             <Button
               title="Take Picture"
@@ -26,35 +25,35 @@ export default function HomeScreen() {
             />
             <Button
               title="Location Services"
-              onPress={() => nav.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Location' as never)}
             />
             <Button
               title="AI Based ChatBot"
-              onPress={() => nav.navigate('Camera' as never)}
+              onPress={() => nav.navigate('ChatBot' as never)}
             />
             <Button
               title="Localization (Multiple Languages)"
-              onPress={() => nav.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Localization' as never)}
             />
             <Button
               title="Notifications Services"
-              onPress={() => nav.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Notification' as never)}
             />
             <Button
               title="Dark and Light Theme"
-              onPress={() => nav.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Theme' as never)}
             />
             <Button
               title="Android ShareSheet"
-              onPress={() => nav.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Share' as never)}
             />
             <Button
               title="Biometric Authentication"
-              onPress={() => nav.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Auth' as never)}
             />
             <Button
               title="Local Storage (To-Do App Example)"
-              onPress={() => nav.navigate('Camera' as never)}
+              onPress={() => nav.navigate('ToDo' as never)}
             />
           </View>
         </ScrollView>

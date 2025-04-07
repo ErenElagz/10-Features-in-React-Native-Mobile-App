@@ -1,12 +1,12 @@
 import {StyleSheet, Text, View, StatusBar, ScrollView} from 'react-native';
 import React from 'react';
 
-export default function CameraScreen() {
+export default function LocalizationScreen() {
   return (
     <View style={{flex: 1}}>
       <View style={styles.container}>
-        <Text style={styles.author}>Function 2</Text>
-        <Text style={styles.text}>Take a Picture</Text>
+        <Text style={styles.author}>Function 5</Text>
+        <Text style={styles.text}>Localization</Text>
       </View>
     </View>
   );
