@@ -5,6 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 
 export default function HomeScreen() {
   const navigate = useNavigation();
+  
   return (
     <View style={{flex: 1}}>
       <View style={styles.container}>
