@@ -4,7 +4,7 @@ import Button from '../components/Button';
 import {useNavigation} from '@react-navigation/native';
 
 export default function HomeScreen() {
-  const navigate = useNavigation();
+  const nav = useNavigation();
   
   return (
     <View style={{flex: 1}}>
@@ -18,43 +18,43 @@ export default function HomeScreen() {
           <View style={{marginTop: 20, gap: 8}}>
             <Button
               title="QR Scanner"
-              onPress={() => navigate.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Camera' as never)}
             />
             <Button
               title="Take Picture"
-              onPress={() => navigate.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Camera' as never)}
             />
             <Button
               title="Location Services"
-              onPress={() => navigate.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Camera' as never)}
             />
             <Button
               title="AI Based ChatBot"
-              onPress={() => navigate.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Camera' as never)}
             />
             <Button
               title="Localization (Multiple Languages)"
-              onPress={() => navigate.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Camera' as never)}
             />
             <Button
               title="Notifications Services"
-              onPress={() => navigate.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Camera' as never)}
             />
             <Button
               title="Dark and Light Theme"
-              onPress={() => navigate.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Camera' as never)}
             />
             <Button
               title="Android ShareSheet"
-              onPress={() => navigate.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Camera' as never)}
             />
             <Button
               title="Biometric Authentication"
-              onPress={() => navigate.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Camera' as never)}
             />
             <Button
               title="Local Storage (To-Do App Example)"
-              onPress={() => navigate.navigate('Camera' as never)}
+              onPress={() => nav.navigate('Camera' as never)}
             />
           </View>
         </ScrollView>
