@@ -1,11 +1,17 @@
-import {View, StyleSheet, Alert, Platform, Text} from 'react-native';
-import React, {useEffect} from 'react';
+import {View, StyleSheet, Alert, Platform, Text, Image} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
 import Pages from '../../data/Pages';
 import {Camera, useCameraDevice} from 'react-native-vision-camera';
 import {request, PERMISSIONS, RESULTS} from 'react-native-permissions';
 import {useNavigation} from '@react-navigation/native';
+import CustomButton from '../../components/Button';
 
 export default function QrScreen() {
+  const [photoPath, setPhotoPath] = useState<string | null>(null);
+  const nav = useNavigation();
+  const devices = useCameraDevice('back');
+  const camera = useRef<Camera>(null);
+
   const checkCameraPermission = async () => {
     const result = await request(
       Platform.OS === 'ios'
@@ -28,19 +34,24 @@ export default function QrScreen() {
           'Camera permission is blocked. Please enable it from settings.',
         );
         break;
-      default:
-        Alert.alert(
-          'Camera Permission',
-          'Camera permission is required to scan QR codes.',
-        );
     }
   };
+
   useEffect(() => {
     checkCameraPermission();
   }, []);
 
-  const nav = useNavigation();
-  const devices = useCameraDevice('back');
+  const takePhoto = async () => {
+    if (camera.current == null) return;
+    try {
+      const photo = await camera.current.takePhoto({
+        flash: 'auto',
+      });
+      setPhotoPath(photo.path);
+    } catch (e) {
+      Alert.alert('Error', 'Failed to take photo');
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -49,18 +60,30 @@ export default function QrScreen() {
         <Text style={styles.title}>{Pages[1].title}</Text>
         <Text style={styles.description}>{Pages[1].description}</Text>
       </View>
-      <View
-        style={{
-          width: '100%',
-          height: 400,
-          marginTop: 16,
-          borderRadius: 32,
-          overflow: 'hidden',
-        }}>
+
+      <View style={styles.cameraContainer}>
         {devices && (
-          <Camera style={styles.camera} device={devices} isActive={true} />
+          <Camera
+            style={StyleSheet.absoluteFill}
+            device={devices}
+            isActive={true}
+            photo={true}
+            ref={camera}
+          />
         )}
       </View>
+
+      <CustomButton title="Take a Picture" onPress={takePhoto} />
+
+      {photoPath && (
+        <View style={styles.previewContainer}>
+          <Image
+            source={{uri: 'file://' + photoPath}}
+            style={styles.previewImage}
+            resizeMode="contain"
+          />
+        </View>
+      )}
     </View>
   );
 }
@@ -87,16 +110,25 @@ const styles = StyleSheet.create({
     letterSpacing: -0.5,
     fontWeight: 'bold',
   },
-  camera: {
-    flex: 1,
+  cameraContainer: {
+    width: '100%',
+    height: 300,
+    marginTop: 16,
+    borderRadius: 32,
+    marginBottom: 16,
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  previewContainer: {
+    width: '100%',
+    height: 300,
+    marginTop: 16,
+    borderRadius: 32,
+    marginBottom: 16,
+    overflow: 'hidden',
+  },
+  previewImage: {
     width: '100%',
     height: '100%',
-  },
-  qrCodeText: {
-    fontSize: 24,
-    color: '#000',
-    marginTop: 16,
-    textAlign: 'center',
-    fontWeight: 'bold',
   },
 });
