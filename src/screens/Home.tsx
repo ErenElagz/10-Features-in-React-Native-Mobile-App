@@ -8,8 +8,8 @@ export default function HomeScreen() {
   const nav = useNavigation();
 
   return (
-    <View style={{flex: 1}}>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <View>
         <ScrollView>
           <Text style={styles.author}>ErenElagz</Text>
           <Text style={styles.text}>

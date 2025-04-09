@@ -4,8 +4,8 @@ import Pages from '../../data/Pages';
 
 export default function CameraScreen() {
   return (
-    <View style={{flex: 1}}>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <View>
         <Text style={styles.function}>Function {Pages[5].index}</Text>
         <Text style={styles.title}>{Pages[5].title}</Text>
         <Text style={styles.description}>{Pages[5].description}</Text>

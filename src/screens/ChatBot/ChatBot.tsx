@@ -4,8 +4,8 @@ import Pages from '../../data/Pages';
 
 export default function ChatBotScreen() {
   return (
-    <View style={{flex: 1}}>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <View>
         <Text style={styles.function}>Function {Pages[3].index}</Text>
         <Text style={styles.title}>{Pages[3].title}</Text>
         <Text style={styles.description}>{Pages[3].description}</Text>

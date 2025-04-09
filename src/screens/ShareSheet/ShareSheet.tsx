@@ -4,8 +4,8 @@ import Pages from '../../data/Pages';
 
 export default function ShareSheetScreen() {
   return (
-    <View style={{flex: 1}}>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <View>
         <Text style={styles.function}>Function {Pages[7].index}</Text>
         <Text style={styles.title}>{Pages[7].title}</Text>
         <Text style={styles.description}>{Pages[7].description}</Text>
