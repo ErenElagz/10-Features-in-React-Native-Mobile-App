@@ -5,11 +5,20 @@ type CustomButtonProps = {
   title: string;
   onPress: () => void;
   style?: object;
+  isDone?: boolean;
 };
 
-const CustomButton: React.FC<CustomButtonProps> = ({title, onPress, style}) => {
+const CustomButton: React.FC<CustomButtonProps> = ({
+  title,
+  onPress,
+  style,
+  isDone,
+}) => {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress} {...style}>
+    <TouchableOpacity
+      style={[styles.button, isDone && {backgroundColor: 'green'}, style]}
+      onPress={onPress}
+      {...style}>
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );

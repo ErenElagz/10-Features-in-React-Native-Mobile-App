@@ -1,8 +1,8 @@
-import {StyleSheet, Text, View, StatusBar, ScrollView} from 'react-native';
+import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import Button from '../components/Button';
 import Pages from '../data/Pages';
+import CustomButton from '../components/Button';
 
 export default function HomeScreen() {
   const nav = useNavigation();
@@ -17,9 +17,10 @@ export default function HomeScreen() {
           </Text>
           <View style={{marginTop: 20, gap: 8}}>
             {Pages.map((page: any, index: number) => (
-              <Button
+              <CustomButton
                 key={index}
                 title={page.title}
+                isDone={page.isDone}
                 onPress={() => nav.navigate(page.navigateTo as never)}
               />
             ))}
