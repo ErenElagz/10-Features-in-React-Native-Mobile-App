@@ -1,0 +1,8 @@
+{
+  "translation": {
+    "greeting": "Merhaba!",
+    "welcome": "Uygulamaya hoş geldin, {{name}}.",
+    "items_one": "{{count}} öğe",
+    "items_other": "{{count}} öğe"
+  }
+}

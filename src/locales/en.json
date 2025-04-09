@@ -1,0 +1,8 @@
+{
+    "translation": {
+      "greeting": "Hello!",
+      "welcome": "Welcome to the app, {{name}}.",
+      "items_one": "{{count}} item",
+      "items_other": "{{count}} items"
+    }
+  }

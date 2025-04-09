@@ -4,8 +4,8 @@ import Pages from '../../data/Pages';
 
 export default function LocalizationScreen() {
   return (
-    <View style={styles.container}>
-      <View>
+    <View style={{flex: 1}}>
+      <View style={styles.container}>
         <Text style={styles.function}>Function {Pages[4].index}</Text>
         <Text style={styles.title}>{Pages[4].title}</Text>
         <Text style={styles.description}>{Pages[4].description}</Text>
