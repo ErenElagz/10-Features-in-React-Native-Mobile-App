@@ -1,4 +1,4 @@
-package com.tenfunctapp
+package com.tenfuncapp
 
 import android.app.Application
 import com.facebook.react.PackageList
