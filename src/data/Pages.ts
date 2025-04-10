@@ -75,7 +75,7 @@ const Pages = [
         navigateTo: 'ToDo',
         description:
             'Provides a simple to-do app example showcasing how to store and retrieve data locally on the device.',
-        isDone: false,
+        isDone: true,
     },
 ];
 

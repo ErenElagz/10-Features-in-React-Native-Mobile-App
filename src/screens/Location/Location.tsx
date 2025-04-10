@@ -25,7 +25,7 @@ export default function LocationScreen() {
         <Text style={styles.description}>{Pages[2].description}</Text>
       </View>
       <View style={{marginTop: 16}}>
-        <Text style={styles.function}>Location Coordinate</Text>
+        <Text style={styles.text}>Location Coordinate</Text>
         {location && (
           <Text style={styles.title}>
             Latitude: {location.latitude}, Longitude: {location.longitude}
@@ -33,7 +33,7 @@ export default function LocationScreen() {
         )}
       </View>
       <View style={{marginTop: 16, flex: 1}}>
-        <Text style={styles.function}>Location Map</Text>
+        <Text style={styles.text}>Location Map</Text>
         {location && (
           <LeafletView
             style={{flex: 1}}
@@ -82,6 +82,12 @@ const styles = StyleSheet.create({
   function: {
     fontSize: 24,
     color: '#234897',
+    letterSpacing: -0.5,
+    fontWeight: 'bold',
+  },
+  text : {
+    fontSize: 28,
+    color: '#000',
     letterSpacing: -0.5,
     fontWeight: 'bold',
   },
