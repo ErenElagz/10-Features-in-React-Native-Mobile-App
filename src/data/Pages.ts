@@ -27,7 +27,7 @@ const Pages = [
         navigateTo: 'ChatBot',
         description:
             'Navigates to a screen featuring an AI-powered chatbot for user interaction.',
-        isDone: false,
+        isDone: true,
     },
     {
         index: 5,
