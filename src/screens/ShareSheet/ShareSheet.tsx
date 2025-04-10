@@ -58,7 +58,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-function alert(message: any) {
-  throw new Error('Function not implemented.');
-}
-

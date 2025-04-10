@@ -1,10 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  TextInput,
-} from 'react-native';
+import {StyleSheet, Text, View, FlatList, TextInput} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Pages from '../../data/Pages';
 import {MMKV} from 'react-native-mmkv';
@@ -14,24 +8,25 @@ import CustomButton from '../../components/Button';
 const storage = new MMKV();
 
 export default function ToDoScreen() {
-  const [todos, setTodos] = useState<{ id: number; text: string; completed: boolean }[]>([]);
+  const [todos, setTodos] = useState<
+    {id: number; text: string; completed: boolean}[]
+  >([]);
   const [newTodo, setNewTodo] = useState('');
-
   useEffect(() => {
     loadTodos();
   }, []);
 
-  const saveTodos = (currentTodos: { id: number; text: string; completed: boolean }[]) => {
+  const saveTodos = (
+    currentTodos: {id: number; text: string; completed: boolean}[],
+  ) => {
     storage.set('todos', JSON.stringify(currentTodos));
   };
-
   const loadTodos = () => {
     const storedTodos = storage.getString('todos');
     if (storedTodos) {
       setTodos(JSON.parse(storedTodos));
     }
   };
-
   const addTodo = () => {
     if (newTodo.trim() !== '') {
       const newTodoList = [
@@ -43,22 +38,27 @@ export default function ToDoScreen() {
       setNewTodo('');
     }
   };
-
   const toggleTodo = (id: number) => {
-    const updatedTodos = todos.map(todo =>
-      todo.id === id ? {...todo, completed: !todo.completed} : todo,
+    const updatedTodos = todos.map(
+      (todo: {id: number; text: string; completed: boolean}) =>
+        todo.id === id ? {...todo, completed: !todo.completed} : todo,
     );
     setTodos(updatedTodos);
     saveTodos(updatedTodos);
   };
-
   const deleteTodo = (id: number) => {
-    const filteredTodos = todos.filter(todo => todo.id !== id);
+    const filteredTodos = todos.filter(
+      (todo: {id: number; text: string; completed: boolean}) => todo.id !== id,
+    );
     setTodos(filteredTodos);
     saveTodos(filteredTodos);
   };
-
-  const renderItem = ({item}: {item: {id: number; text: string; completed: boolean}}) => (
+  
+  const renderItem = ({
+    item,
+  }: {
+    item: {id: number; text: string; completed: boolean};
+  }) => (
     <View style={styles.todoItem}>
       <Text
         style={{
@@ -98,14 +98,14 @@ export default function ToDoScreen() {
             value={newTodo}
             placeholderTextColor={'#aaa'}
             cursorColor={'darkblue'}
-            onChangeText={text => setNewTodo(text)}
+            onChangeText={(text: string) => setNewTodo(text)}
           />
           <CustomButton title="Add" onPress={addTodo} style={{flex: 1}} />
         </View>
         <FlatList
           data={todos}
           renderItem={renderItem}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={(item: any) => item.id.toString()}
         />
       </View>
     </View>

@@ -5,7 +5,6 @@ import CustomButton from '../../components/Button';
 
 const ThemeContext = createContext();
 const useTheme = () => useContext(ThemeContext);
-
 const ThemeProvider = ({children}) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
@@ -13,13 +12,12 @@ const ThemeProvider = ({children}) => {
     colors: {
       background: isDarkMode ? '#000' : '#fff',
       text: isDarkMode ? '#fff' : '#000',
-      primary: isDarkMode ? 'yellow' : 'darkblue',
+      primary: isDarkMode ? 'orange' : 'darkblue',
       textSecondary: isDarkMode ? '#ffffff50' : '#aaa',
     },
     isDarkMode,
     toggleTheme,
   };
-
   return (
     <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
   );
@@ -54,10 +52,8 @@ const ThemeScreenContent = () => {
   });
 
   return (
-    <View style={{flex: 1}}>
-      <StatusBar
-        barStyle={colors.isDarkMode ? 'light-content' : 'dark-content'}
-      />
+    <View style={{flex: 1, paddingTop: 16, backgroundColor: colors.background}}>
+      <StatusBar translucent={true} backgroundColor="transparent" />
       <View style={styles.container}>
         <Text style={styles.function}>Function {Pages[6].index}</Text>
         <Text style={styles.title}>{Pages[6].title}</Text>
@@ -68,6 +64,21 @@ const ThemeScreenContent = () => {
           onPress={toggleTheme}
           style={{backgroundColor: colors.primary, borderRadius: 12}}
         />
+        <View style={{marginTop: 16}}>
+          <Text style={styles.function}>Current Theme</Text>
+          <Text style={styles.description}>
+            {`Current Background Color: ${colors.background}`}
+          </Text>
+          <Text style={styles.description}>
+            {`Current Text Color: ${colors.text}`}
+          </Text>
+          <Text style={styles.description}>
+            {`Current Primary Color: ${colors.primary}`}
+          </Text>
+          <Text style={styles.description}>
+            {`Current Secondary Text Color: ${colors.textSecondary}`}
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -75,7 +86,7 @@ const ThemeScreenContent = () => {
 
 export default function ThemeScreen() {
   return (
-    <ThemeProvider>
+    <ThemeProvider children={<ThemeScreenContent />}>
       <ThemeScreenContent />
     </ThemeProvider>
   );

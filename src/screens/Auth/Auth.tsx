@@ -15,7 +15,6 @@ export default function AuthScreen() {
 
   const checkBiometrics = async () => {
     const {available, biometryType} = await rnBiometrics.isSensorAvailable();
-
     if (available) {
       setBiometricAvailable(true);
       setBiometricType(biometryType);
@@ -40,12 +39,11 @@ export default function AuthScreen() {
       );
       return;
     }
-
+    
     const result = await rnBiometrics.simplePrompt({
       promptMessage: 'Biometric Authentication',
       cancelButtonText: 'Close',
     });
-
     if (result && result.success) {
       setAuthSuccessful(true);
       Alert.alert('Success', 'Biometric Authentication Successful!');
@@ -71,7 +69,6 @@ export default function AuthScreen() {
         ) : (
           <Text>Biometric authentication is not available on this device.</Text>
         )}
-
         {authSuccessful && (
           <Text style={styles.successText}>Biometric Authentication Successful!</Text>
         )}
@@ -107,8 +104,9 @@ const styles = StyleSheet.create({
   },
   successText: {
     marginTop: 16,
-    fontSize: 18,
+    fontSize: 20,
     color: 'green',
     fontWeight: 'bold',
+    textAlign: 'center',
   },
 });

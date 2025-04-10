@@ -4,6 +4,7 @@ import Pages from '../../data/Pages';
 import en from '../../locales/en.json';
 import tr from '../../locales/tr.json';
 import pl from '../../locales/pl.json';
+
 export default function LocalizationScreen() {
   const [selectedLanguage, setSelectedLanguage] = useState('en'); // Başlangıç dili olarak İngilizce
   const translations = {
@@ -11,10 +12,8 @@ export default function LocalizationScreen() {
     tr: tr.translation,
     pl: pl.translation,
   };
-
   const currentTranslation = translations[selectedLanguage];
-
-  const changeLanguage = lang => {
+  const changeLanguage = (lang: string) => {
     setSelectedLanguage(lang);
   };
 
@@ -68,9 +67,8 @@ export default function LocalizationScreen() {
             Polski
           </Text>
         </TouchableOpacity>
-
       </View>
-
+      
       <View>
         <Text style={styles.function}>{currentTranslation?.greeting}</Text>
         <Text style={styles.description}>
@@ -106,7 +104,7 @@ const styles = StyleSheet.create({
   },
   function: {
     fontSize: 24,
-    color: '#234897',
+    color: 'darkblue',
     letterSpacing: -0.5,
     fontWeight: 'bold',
     marginBottom: 8,
@@ -119,19 +117,16 @@ const styles = StyleSheet.create({
   languageButton: {
     paddingVertical: 8,
     paddingHorizontal: 12,
-    borderRadius: 5,
+    borderRadius: 8,
     marginRight: 8,
-    borderWidth: 1,
-    borderColor: '#ccc',
+    backgroundColor: '#f0f0f0',
   },
   selectedLanguageButton: {
-    backgroundColor: '#234897',
-    borderColor: '#234897',
+    backgroundColor: 'darkblue',
   },
   languageText: {
     fontSize: 16,
-    color: '#333',
-  },
+    },
   selectedLanguageText: {
     color: '#fff',
   },
