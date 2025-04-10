@@ -14,7 +14,7 @@ import CustomButton from '../../components/Button';
 const storage = new MMKV();
 
 export default function ToDoScreen() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<{ id: number; text: string; completed: boolean }[]>([]);
   const [newTodo, setNewTodo] = useState('');
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function ToDoScreen() {
     }
   };
 
-  const toggleTodo = id => {
+  const toggleTodo = (id: number) => {
     const updatedTodos = todos.map(todo =>
       todo.id === id ? {...todo, completed: !todo.completed} : todo,
     );
@@ -52,13 +52,13 @@ export default function ToDoScreen() {
     saveTodos(updatedTodos);
   };
 
-  const deleteTodo = id => {
+  const deleteTodo = (id: number) => {
     const filteredTodos = todos.filter(todo => todo.id !== id);
     setTodos(filteredTodos);
     saveTodos(filteredTodos);
   };
 
-  const renderItem = ({item}) => (
+  const renderItem = ({item}: {item: {id: number; text: string; completed: boolean}}) => (
     <View style={styles.todoItem}>
       <Text
         style={{

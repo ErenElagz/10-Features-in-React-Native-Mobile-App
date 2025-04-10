@@ -67,7 +67,7 @@ const Pages = [
         navigateTo: 'Auth',
         description:
             'Implements biometric security features like fingerprint or face recognition for user authentication.',
-        isDone: false,
+        isDone: true,
     },
     {
         index: 10,

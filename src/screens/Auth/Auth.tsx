@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View, Button, Alert} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Pages from '../../data/Pages';
-import ReactNativeBiometrics from 'react-native-biometrics';
+import ReactNativeBiometrics, {BiometryType} from 'react-native-biometrics';
 import CustomButton from '../../components/Button';
 
 export default function AuthScreen() {
