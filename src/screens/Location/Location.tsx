@@ -13,10 +13,10 @@ export default function LocationScreen() {
     enableHighAccuracy: true,
     timeout: 5000,
   })
-    .then(location => {
+    .then((location: {latitude: number; longitude: number}) => {
       setLocation(location);
     })
-    .catch(error => {
+    .catch((error: {code: string; message: string}) => {
       const {code, message} = error;
     });
 
@@ -31,8 +31,12 @@ export default function LocationScreen() {
         <Text style={styles.text}>Location Coordinate</Text>
         {location && (
           <View>
-            <Text style={styles.description}>Latitude: {location.latitude}</Text>
-            <Text style={styles.description}>Longitude: {location.longitude}</Text>
+            <Text style={styles.description}>
+              Latitude: {location.latitude}
+            </Text>
+            <Text style={styles.description}>
+              Longitude: {location.longitude}
+            </Text>
           </View>
         )}
       </View>
