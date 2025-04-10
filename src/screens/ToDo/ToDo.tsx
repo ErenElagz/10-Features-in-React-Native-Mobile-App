@@ -4,7 +4,6 @@ import {
   View,
   FlatList,
   TextInput,
-  Button,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Pages from '../../data/Pages';
@@ -22,7 +21,7 @@ export default function ToDoScreen() {
     loadTodos();
   }, []);
 
-  const saveTodos = currentTodos => {
+  const saveTodos = (currentTodos: { id: number; text: string; completed: boolean }[]) => {
     storage.set('todos', JSON.stringify(currentTodos));
   };
 
