@@ -35,7 +35,7 @@ const Pages = [
         navigateTo: 'Localization',
         description:
             'Demonstrates how the app can be displayed in different languages based on user preference or device settings.',
-        isDone: false,
+        isDone: true,
     },
     {
         index: 6,
