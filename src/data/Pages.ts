@@ -43,7 +43,7 @@ const Pages = [
         navigateTo: 'Notification',
         description:
             'Shows examples of implementing push notifications or local notifications within the app.',
-        isDone: false,
+        isDone: true,
     },
     {
         index: 7,
