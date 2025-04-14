@@ -17,11 +17,11 @@ const date = new Date();
 const API_KEY = 'AIzaSyCtzWJ-FYYJ8Vb2G299HcYkd2o7XPAZItM';
 const genAI = new GoogleGenerativeAI(API_KEY);
 
-function Response(props) {
+function Response(props: {prompt: string}) {
   const [generatedText, setGeneratedText] = useState('');
   useEffect(() => {
     const fetchData = async () => {
-      const model = genAI.getGenerativeModel({model: 'gemini-pro'});
+      const model = genAI.getGenerativeModel({model: 'gemini'});
       const prompt = props.prompt;
       const result = await model.generateContent(prompt);
       const response = await result.response;
